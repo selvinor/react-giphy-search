@@ -14,11 +14,14 @@ function _search(name) {
         return res.json();
       }).then(data => {
         console.log('data.data.length: ', data.data.length );
+        console.log('data.data:', data.data);
         //console.log('data.data[0].images.original.url: ', data.data[0].images.original.url );
         for (let i=0; i<= data.data.length; i++) {
-          console.log(data.data[i].images.original.url);
+          console.log('Image: ', data.data[i].images.original.url);
+
         }
-        data.data.map(images => images.original.url)
+        console.log('data.data:', data.data);
+        //data.data.map(images => images.original.url)
       });
 }
 

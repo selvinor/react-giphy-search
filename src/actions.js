@@ -18,7 +18,6 @@ export const searchGiphysError = error => ({
 
 export const searchGiphys = name => dispatch => {
   dispatch(searchGiphysRequest());
-  console.log('dispatched searchGiphys');
   search(name)
       .then(giphys => {
         console.log('attempting dispatch searchGiphysSuccess');
