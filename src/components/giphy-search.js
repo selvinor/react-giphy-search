@@ -19,7 +19,7 @@ export class GiphySearch extends React.Component {
 
 
           return (
-              <ul className="character-search-results">
+              <ul className="giphy-search-results">
                   {giphys}
               </ul>
           );

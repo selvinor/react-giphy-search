@@ -18,7 +18,7 @@ export function giphyReducer(state=initialState, action) {
     return Object.assign({}, state, {
       loading: true,
       error: null
-  });
+    });
   }
   else if (action.type === SEARCH_GIPHYS_SUCCESS) {
     console.log('SEARCH_GIPHYS_SUCCESS');
