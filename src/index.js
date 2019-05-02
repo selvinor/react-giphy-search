@@ -1,41 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import GiphyList from './components/giphy-list';
-import GiphySearch from './components/giphy-search';
+import { Provider } from 'react-redux';
+import store from './store';
+import GiphyViewer from './components/giphy-viewer';
+import * as serviceWorker from './serviceWorker';
 
-class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      gifs: [
-        {
-            id: 1,
-            url: 'https://media2.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif'
-        },
-        {
-            id: 2,
-            url: 'https://media0.giphy.com/media/aC45M5Q4D07Pq/200_s.gif'
-        },
-        {
-            id: 3,
-            url: 'https://media1.giphy.com/media/5oBRpcOT04dq0/200.gif'
-        }
-      ]
-    }
-  }
+ReactDOM.render(
+  <Provider store={store}>
+    <GiphyViewer /> 
+  </Provider>,
 
-  handleTermChange(term) {
-    console.log(term);
-  }
-
-    render() {
-      return (
-        <div>
-            <GiphySearch onTermChange={this.handleTermChange} />
-            <GiphyList gifs={this.state.gifs} />
-        </div>
-      );
-    }
-}
-
-ReactDOM.render(<App />, document.getElementById('app'));
+document.getElementById('app'));
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();

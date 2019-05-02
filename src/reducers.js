@@ -5,7 +5,21 @@ import {
 } from './actions';
 
 const initialState = {
-  giphys: [],
+  gifs: [
+    {
+      id: 1,
+      url: 'https://media2.giphy.com/media/cfuL5gqFDreXxkWQ4o/giphy.gif'
+  },
+  {
+      id: 2,
+      url: 'https://media0.giphy.com/media/aC45M5Q4D07Pq/200_s.gif'
+  },
+  {
+      id: 3,
+      url: 'https://media1.giphy.com/media/5oBRpcOT04dq0/200.gif'
+  }
+
+  ],
   term: '',
   loading: false,
   error: null
@@ -23,7 +37,7 @@ export function giphyReducer(state=initialState, action) {
   else if (action.type === SEARCH_GIPHYS_SUCCESS) {
     console.log('SEARCH_GIPHYS_SUCCESS');
     return Object.assign({}, state, {
-      giphys: action.giphys,
+      gifs: action.gifs,
       loading: false,
       error: null
   });

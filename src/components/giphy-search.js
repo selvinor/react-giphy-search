@@ -1,16 +1,11 @@
 import React from 'react';
-// import {connect} from 'react-redux';
-// import Spinner from 'react-spinkit';
-// import {searchGiphys} from '../actions';
+
 
 export default class GiphySearch extends React.Component {
-  constructor() {
-    super();
-    this.state = { term: '' }
-  }
+
 
   onInputChange(term) {
-    this.setState({term});
+//    this.setState({term});
     this.props.onTermChange(term);
   }
  
