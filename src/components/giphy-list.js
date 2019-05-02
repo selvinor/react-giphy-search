@@ -9,7 +9,7 @@ const GiphyList = (props) => {
   console.log('props: ', props );
   return (
     <div>
-      <h2>props</h2>
+      <h2>GIF VIEWER</h2>
       <ul>{giphyItems}</ul>
     </div>
   );

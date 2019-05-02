@@ -1,11 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-
-export default class GiphySearch extends React.Component {
+export class GiphySearch extends React.Component {
 
 
   onInputChange(term) {
-//    this.setState({term});
     this.props.onTermChange(term);
   }
  
@@ -17,3 +16,10 @@ export default class GiphySearch extends React.Component {
         );
     }
 }
+const mapStateToProps = state => ({
+  gifs: state.gifs,
+  loading: state.loading,
+  error: state.error
+});
+
+export default connect(mapStateToProps)(GiphySearch);

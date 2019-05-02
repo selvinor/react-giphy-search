@@ -1,22 +1,29 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import GiphyList from './giphy-list';
 import GiphySearch from './giphy-search';
-import {searchGiphys} from '../actions';
+import { searchGiphys } from '../actions';
 
 export class GiphyViewer extends React.Component {
-  
+  constructor( props ){
+    super( props );
+    this.handleTermChange = this.handleTermChange.bind(this);
+  }
+
   handleTermChange(term) {
     //when term changes, issue action to update state and trigger render
-    console.log('handleTermChange this.props: ', this.props);
-        this.props.dispatch(searchGiphys(this.input.value));
+    console.log('giphy.viewer | handleTermChange | term: ', term);
+//    this.props.dispatch(searchGiphys(term));
+    this.props.searchGiphys(term);
   }
  
   render() {
+
+    const giphys = this.props.gifs;
     return (
       <div>
           <GiphySearch onTermChange={this.handleTermChange} />
-          <GiphyList gifs={this.props.gifs} />
+          <GiphyList gifs={giphys} />
       </div>
     );
   }
@@ -24,8 +31,8 @@ export class GiphyViewer extends React.Component {
 const mapDispatchToProps = dispatch => {
 
   return {
-    searchGiphys: () => {
-      dispatch(searchGiphys())
+    searchGiphys: (term) => {
+      dispatch(searchGiphys(term))
     }
 
   };

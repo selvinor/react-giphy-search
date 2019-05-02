@@ -1,12 +1,13 @@
 //import {search} from './giphy';
-function search(name) {
+function search(term) {
+  console.log('Doing search on: ', term);
   const api = 'https://api.giphy.com/v1/gifs/search';
-  const query = '?q=' + name;
+  const query = '?q=' + term;
   const apiKey = '&api_key=' + process.env.REACT_APP_GIPHY_API_KEY;
   const limit = '&limit=5';
   const url = api + query + apiKey + limit; 
   //https://api.giphy.com/v1/gifs/search?q=trending&api_key=4Grsp3LnEfK5jNJUPqmaRA8Mcv6YR5z9&limit=5
-  console.log('searching...');
+  console.log('searching...', url);
     return fetch(url)
     .then(res => {
         if (!res.ok) {
@@ -21,7 +22,7 @@ function search(name) {
         for (let i=0; i <= data.data.length; i++) {
           console.log('Image: ', data.data[i].images.original.url);
           imgArr.push(data.data[i].images.original.url);
-          //console.log('imgArr: ', imgArr);
+          console.log('imgArr: ', imgArr);
         }
 
         return imgArr;
@@ -48,9 +49,10 @@ export const searchGiphysError = error => ({
     error
 });
 
-export const searchGiphys = name => dispatch => {
-  dispatch(searchGiphysRequest());
-  search(name)
+export const searchGiphys = term => dispatch => {
+  console.log('SEARCH TERM: ', term);
+  dispatch(searchGiphysRequest()); //sets loading status
+  search(term)
       .then(giphys => {
         console.log('attempting dispatch searchGiphysSuccess');
         dispatch(searchGiphysSuccess(giphys))
