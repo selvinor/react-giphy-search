@@ -10,19 +10,8 @@ export class GifViewer extends React.Component {
     super( props );
     this.handleTermChange = this.handleTermChange.bind(this);
   }
-  renderResults() {
-    if (this.props.loading) {
-        return <Spinner spinnername="circle" fadeIn='none' />;
-    }
-
-    if (this.props.error) {
-        return <strong>{this.props.error}</strong>;
-    }
-}
   handleTermChange(term) {
     //when term changes, issue action to update state and trigger render
-    console.log('giphy.viewer | handleTermChange | term: ', term);
-//    this.props.dispatch(searchGifs(term));
     this.props.searchGifs(term);
   }
  
