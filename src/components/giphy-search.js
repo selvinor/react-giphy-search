@@ -1,34 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Spinner from 'react-spinkit';
 import { searchGifs } from '../actions';
 
 export class GifSearch extends React.Component {
-  renderResults() {
-    if (this.props.loading) {
-        return <Spinner spinnername="circle" fadeIn='none' />;
-    }
 
-    if (this.props.error) {
-        return <strong>{this.props.error}</strong>;
-    }
-console.log('this.props.gifs: ', this.props.gifs);
-    const gifs = this.props.gifs.map((gif, index) =>
-        <li key={index}>{gif}</li>
-    );
-
-
-    return (
-        <ul className="giphy-search-results">
-            {gifs}
-        </ul>
-    );
-}
 
 search(e) {
     e.preventDefault();
     if (this.input.value.trim() === '') {
-        return;
+      return;
     }
 
     this.props.dispatch(searchGifs(this.input.value));
@@ -48,9 +28,9 @@ search(e) {
                 <input type="search" ref={input => this.input = input} />
                 <button>Search</button>
             </form>
-            <ul className="giphy-search-results">
+            {/* <ul className="giphy-search-results">
                 {this.renderResults()}
-            </ul>
+            </ul> */}
         </div>
 
         );

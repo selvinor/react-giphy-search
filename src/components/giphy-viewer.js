@@ -3,13 +3,33 @@ import { connect } from 'react-redux';
 import GifList from './giphy-list';
 import GifSearch from './giphy-search';
 import { searchGifs } from '../actions';
+import Spinner from 'react-spinkit';
 
 export class GifViewer extends React.Component {
   constructor( props ){
     super( props );
     this.handleTermChange = this.handleTermChange.bind(this);
   }
+  renderResults() {
+    if (this.props.loading) {
+        return <Spinner spinnername="circle" fadeIn='none' />;
+    }
 
+    if (this.props.error) {
+        return <strong>{this.props.error}</strong>;
+    }
+// console.log('this.props.gifs: ', this.props.gifs);
+//     const gifs = this.props.gifs.map((gif, index) =>
+//         <li key={index}>{gif}</li>
+//     );
+
+
+    // return (
+    //     <ul className="giphy-search-results">
+    //         {gifs}
+    //     </ul>
+    //);
+}
   handleTermChange(term) {
     //when term changes, issue action to update state and trigger render
     console.log('giphy.viewer | handleTermChange | term: ', term);
