@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import GifList from './giphy-list';
 import GifSearch from './giphy-search';
 import { searchGifs } from '../actions';
 import Spinner from 'react-spinkit';
-
+import '../index.css'; 
 export class GifViewer extends React.Component {
   constructor( props ){
     super( props );
@@ -18,17 +18,6 @@ export class GifViewer extends React.Component {
     if (this.props.error) {
         return <strong>{this.props.error}</strong>;
     }
-// console.log('this.props.gifs: ', this.props.gifs);
-//     const gifs = this.props.gifs.map((gif, index) =>
-//         <li key={index}>{gif}</li>
-//     );
-
-
-    // return (
-    //     <ul className="giphy-search-results">
-    //         {gifs}
-    //     </ul>
-    //);
 }
   handleTermChange(term) {
     //when term changes, issue action to update state and trigger render
@@ -41,10 +30,11 @@ export class GifViewer extends React.Component {
 
     const gifs = this.props.gifs;
     return (
-      <div>
-          <GifSearch onTermChange={this.handleTermChange} />
-          <GifList gifs={gifs} />
-      </div>
+      <Fragment >
+        <h2>GIF VIEWER</h2>
+        <GifSearch onTermChange={this.handleTermChange} />
+        <GifList gifs={gifs} />
+      </Fragment>
     );
   }
 }

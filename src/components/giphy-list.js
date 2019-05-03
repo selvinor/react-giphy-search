@@ -6,15 +6,12 @@ const GifList = (props) => {
   const giphyItems = props.gifs.map((item) => {
     return <GifItem key={item.id} gif={item} />
   });
-  console.log('props: ', props );
   return (
-    <div>
-      <h2>GIF VIEWER</h2>
-      <ul>{giphyItems}</ul>
-    </div>
+
+      <div className="giphy-list">
+        <ul>{giphyItems}</ul>
+      </div>
   );
-
-
 
 };
 export default GifList;

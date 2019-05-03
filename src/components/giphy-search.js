@@ -13,24 +13,14 @@ search(e) {
 
     this.props.dispatch(searchGifs(this.input.value));
 }
-
-  // onInputChange(term) {
-  //   this.props.onTermChange(term);
-  // }
  
     render() {
         return (
-            // <div className="giphy-search">
-            //   <input onChange={event => this.onInputChange(event.target.value)} />
-            // </div>
-            <div className="giphy-search">
-            <form onSubmit={(e) => this.search(e)}>
-                <input type="search" ref={input => this.input = input} />
-                <button>Search</button>
-            </form>
-            {/* <ul className="giphy-search-results">
-                {this.renderResults()}
-            </ul> */}
+        <div className="giphy-search">
+        <form onSubmit={(e) => this.search(e)}>
+            <input type="search" ref={input => this.input = input} />
+            <button>Search</button>
+        </form>
         </div>
 
         );

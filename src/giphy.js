@@ -5,7 +5,6 @@ function _search(term) {
   const limit = '&limit=5';
   const url = api + query + apiKey + limit; 
   //https://api.giphy.com/v1/gifs/search?q=trending&api_key=4Grsp3LnEfK5jNJUPqmaRA8Mcv6YR5z9&limit=5
-  console.log('searching url...', url);
     return fetch(url).then(res => {
       if (!res.ok) {
           return Promise.reject(res.statusText);

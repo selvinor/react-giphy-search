@@ -1,0 +1,33 @@
+body {
+  margin: 0;
+  padding: 10px 20px;
+  font-family: sans-serif;
+}
+
+li {
+  list-style: none;
+  display: inline-flex;
+}
+.container {
+
+}
+
+.viewer {
+
+  margin:auto;
+}
+.giphy-search {
+
+
+}
+.giphy-list {
+  display:flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin:10px;
+}
+
+.giphy-item {
+  margin:auto;
+}
