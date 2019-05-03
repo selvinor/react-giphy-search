@@ -1,11 +1,11 @@
 import React from 'react';
 
-const GiphyItem = (item) => {
+const GifItem = (item) => {
   return (
-    <li>
+    <li key={item.id}>
       <img src={item.gif.url} alt="giphy item" />
     </li>
   )
 };
 
-export default GiphyItem;
+export default GifItem;

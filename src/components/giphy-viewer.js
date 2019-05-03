@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import GiphyList from './giphy-list';
-import GiphySearch from './giphy-search';
-import { searchGiphys } from '../actions';
+import GifList from './giphy-list';
+import GifSearch from './giphy-search';
+import { searchGifs } from '../actions';
 
-export class GiphyViewer extends React.Component {
+export class GifViewer extends React.Component {
   constructor( props ){
     super( props );
     this.handleTermChange = this.handleTermChange.bind(this);
@@ -13,17 +13,17 @@ export class GiphyViewer extends React.Component {
   handleTermChange(term) {
     //when term changes, issue action to update state and trigger render
     console.log('giphy.viewer | handleTermChange | term: ', term);
-//    this.props.dispatch(searchGiphys(term));
-    this.props.searchGiphys(term);
+//    this.props.dispatch(searchGifs(term));
+    this.props.searchGifs(term);
   }
  
   render() {
 
-    const giphys = this.props.gifs;
+    const gifs = this.props.gifs;
     return (
       <div>
-          <GiphySearch onTermChange={this.handleTermChange} />
-          <GiphyList gifs={giphys} />
+          <GifSearch onTermChange={this.handleTermChange} />
+          <GifList gifs={gifs} />
       </div>
     );
   }
@@ -31,8 +31,8 @@ export class GiphyViewer extends React.Component {
 const mapDispatchToProps = dispatch => {
 
   return {
-    searchGiphys: (term) => {
-      dispatch(searchGiphys(term))
+    searchGifs: (term) => {
+      dispatch(searchGifs(term))
     }
 
   };
@@ -43,4 +43,4 @@ const mapStateToProps = state => ({
   error: state.error
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(GiphyViewer);
+export default connect(mapStateToProps, mapDispatchToProps)(GifViewer);

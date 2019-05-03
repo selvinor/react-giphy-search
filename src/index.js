@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import store from './store';
-import GiphyViewer from './components/giphy-viewer';
+import GifViewer from './components/giphy-viewer';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <Provider store={store}>
-    <GiphyViewer /> 
+    <GifViewer /> 
   </Provider>,
 
 document.getElementById('app'));

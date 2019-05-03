@@ -1,7 +1,7 @@
 import {
-  SEARCH_GIPHYS_REQUEST,
-  SEARCH_GIPHYS_SUCCESS,
-  SEARCH_GIPHYS_ERROR
+  SEARCH_GIFS_REQUEST,
+  SEARCH_GIFS_SUCCESS,
+  SEARCH_GIFS_ERROR
 } from './actions';
 
 const initialState = {
@@ -26,23 +26,23 @@ const initialState = {
 
 export function giphyReducer(state=initialState, action) {
   // Handle these sync actions
-  if (action.type === SEARCH_GIPHYS_REQUEST) {
-    console.log('Reducer for SEARCH_GIPHYS_REQUEST');
+  if (action.type === SEARCH_GIFS_REQUEST) {
+    console.log('Reducer for SEARCH_GIFS_REQUEST');
     return Object.assign({}, state, {
       term: action.term,
       loading: true,
       error: null
     });
   }
-  else if (action.type === SEARCH_GIPHYS_SUCCESS) {
-    console.log('SEARCH_GIPHYS_SUCCESS');
+  else if (action.type === SEARCH_GIFS_SUCCESS) {
+    console.log('SEARCH_GIFS_SUCCESS');
     return Object.assign({}, state, {
       gifs: action.gifs,
       loading: false,
       error: null
   });
   }
-  else if (action.type === SEARCH_GIPHYS_ERROR) {
+  else if (action.type === SEARCH_GIFS_ERROR) {
   }
   return state;
 }

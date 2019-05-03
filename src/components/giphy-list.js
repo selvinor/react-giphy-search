@@ -1,10 +1,10 @@
 import React from 'react';
-import GiphyItem from './giphy-item';
+import GifItem from './giphy-item';
 
-const GiphyList = (props) => {
+const GifList = (props) => {
 //  create array to hold the list of gifs, map each gif to a giphyItem component and render it.
   const giphyItems = props.gifs.map((item) => {
-    return <GiphyItem key={item.id} gif={item} />
+    return <GifItem key={item.id} gif={item} />
   });
   console.log('props: ', props );
   return (
@@ -17,4 +17,4 @@ const GiphyList = (props) => {
 
 
 };
-export default GiphyList;
+export default GifList;
